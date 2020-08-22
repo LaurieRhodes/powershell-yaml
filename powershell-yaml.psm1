@@ -82,12 +82,6 @@ function Convert-ValueToProperType {
  (([ \t]*)Z|[-+][0-9][0-9]?(:[0-9][0-9])?)? # (time zone)
 '@
 
-
-#write-host "Style = $($Node.Style)"
-#write-host "Tag = $($Node.Tag)"
-#write-host "Value = $($Node.value)"
-#write-host ""
-
         if([Text.RegularExpressions.Regex]::IsMatch($Node.Value, $regex, [Text.RegularExpressions.RegexOptions]::IgnorePatternWhitespace) ) {
             [DateTime]$datetime = [DateTime]::MinValue
             if( ([DateTime]::TryParse($Node.Value,[ref]$datetime)) ) {
